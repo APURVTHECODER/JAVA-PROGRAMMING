@@ -1,0 +1,36 @@
+public class Solution {
+
+	public static void printFahrenheitTable(int start, int end, int step) {
+		/* Your class should be named Solution 
+		 * Don't write main(). 
+		 * Don't read input, it is passed as function argument. 
+		 * Print the specified output in required format. 
+		 * Taking input is handled automatically. 
+		 */
+    int i=start;
+    int sum=start;
+    boolean x=true;
+    double C=(int)(((5.0/9)*(sum-32)));
+    double D=0.0;
+    System.out.println(sum+ " " +(int)C);
+    while(x==true)
+    {
+        
+        sum=sum+step;
+        D=(int)((5.0/9)*(sum-32));
+        if(sum<=end)
+        {
+        System.out.println(sum + " " +(int)D);
+        }
+        if(sum>end)
+        {
+            x=false;
+        }
+        
+        
+    }
+        
+
+		
+	}
+}
