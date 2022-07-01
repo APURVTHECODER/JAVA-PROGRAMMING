@@ -1,0 +1,27 @@
+
+public class Solution {
+
+	public static int countWords(String str) {	
+		//Your code goes here
+        int n=str.length();
+        char blank=' ';
+        int count=0;
+        char ch='x';
+        if(n==0)
+        {
+            return 0;
+        }
+        for(int i=0;i<n;i++)
+        {
+        	ch=str.charAt(i);
+            if(ch==blank)
+            {
+        	
+                count++;
+            }
+        }
+        
+        return count+1;
+	}
+
+}
