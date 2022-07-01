@@ -1,0 +1,23 @@
+
+public class solution {
+
+	public static int sumOfDigits(int input){
+		// Write your code here
+		if(input<=1)
+        {
+            return input;
+        }
+        int sto=input%10;
+        int store=sto+(sumOfDigits(input/10));
+        System.out.println(store+" ");
+       // int small=input/10;
+        //int temp=sumOfDigits(small);
+        
+        return store;
+       
+        
+        
+        
+        
+	}
+}
