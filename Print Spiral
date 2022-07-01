@@ -1,0 +1,69 @@
+
+public class Solution {
+
+	public static void spiralPrint(int matrix[][]){
+		//Your code goes here
+        if (matrix.length==0)     //agr number of row zero h toh return 
+        {
+        	return;
+        }
+        int RowStart=0;
+        int ColumnStart=0;
+        int RowEnd=matrix.length;
+        int ColumnEnd=matrix[0].length;
+        int n=matrix.length;
+        int m=matrix[0].length;
+        int NumberofElementsinMatrix=n*m;
+        while(NumberofElementsinMatrix>0)
+               
+        {
+            for(int i=RowStart;i<RowEnd;i++)
+            {
+                for(int j=ColumnStart;j<ColumnEnd;j++)
+                {
+                    System.out.print(matrix[i][j]+" ");
+
+                }
+				break;
+            }
+            RowStart++;
+            NumberofElementsinMatrix+=ColumnEnd-ColumnStart;
+
+            for(int j=ColumnEnd-1;j<ColumnEnd;j++)
+            {
+                for(int i=RowStart;i<RowEnd;i++)
+                {
+                    System.out.print(matrix[i][j]+" ");
+
+                }
+				break;
+            }
+            ColumnEnd--;
+            NumberofElementsinMatrix+=RowEnd-RowStart;
+            for(int i=RowEnd-1;i<RowEnd;i++)
+            {
+                for(int j=ColumnEnd-1;j>ColumnStart;j--)
+                {
+                    System.out.print(matrix[i][j]+" ");
+
+                }
+				break;
+            }
+            RowEnd--;
+            NumberofElementsinMatrix+=ColumnEnd-ColumnStart;
+            for(int j=ColumnStart;j<ColumnEnd;j++)
+            {
+                for(int i=RowEnd;i>=RowStart;i--)
+                {
+                    System.out.print(matrix[i][j]+" ");
+
+                }
+				break;
+            }
+            ColumnStart++;
+            NumberofElementsinMatrix+=RowEnd-RowStart;
+        
+        }        
+        
+	}
+}
