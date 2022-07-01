@@ -1,0 +1,37 @@
+
+public class solution {
+
+	public static int countZerosRec(int input){
+		// Write your code here
+		
+		if(input<10)
+		{
+            if(input==0)
+				return 1;
+            else
+                return 0;
+		}
+     
+        if(input%10==0)
+        {
+            int stor=1;
+      		int result=1+countZerosRec(input/10);
+    		return result;
+        }
+        
+     
+        return countZerosRec(input/10);
+	}
+}
+
+
+
+
+
+
+
+
+
+
+
+
