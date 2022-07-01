@@ -1,0 +1,47 @@
+public class Solution {
+
+	public static String removeConsecutiveDuplicates(String s) {
+		// Write your code here
+
+        
+//     	if(s.length()==0)
+//         {
+//             return s;
+//         }
+        if(s.length()<=1)
+        {
+            return s;
+        }
+        
+        String smalloutput=removeConsecutiveDuplicates(s.substring(1));
+        
+        if(smalloutput.charAt(0)==s.charAt(0))
+        {
+            
+            return smalloutput;
+        }
+        else
+        {
+            
+            return s.charAt(0)+smalloutput;
+        }
+        
+        
+        
+        
+        
+//                 if(s.length()<=1)
+//             return s;
+//         String smallans=removeConsecutiveDuplicates(s.substring(1));
+//         if(smallans.charAt(0)==s.charAt(0))
+//             return smallans;
+//         else
+//             return s.charAt(0)+smallans;
+        
+        
+        
+        
+        
+	}
+
+}
