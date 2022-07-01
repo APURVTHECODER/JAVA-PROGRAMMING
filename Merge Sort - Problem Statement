@@ -1,0 +1,140 @@
+// public class solution {
+
+
+// 	public static void mergeSort(int[] input){
+// 		// Write your code here
+//         if(input.length<=1)
+//         {
+//             return;
+//         }
+//         int s1[]=new int[input.length/2];
+//         int s2[]=new int[input.length-s1.length/2];
+		
+//     	for(int i=0;i<input.length/2;i++)
+//         {
+//             s1[i]=input[i];
+//         }
+//         int k=0;
+//     	for(int i=input.length/2;i<input.length;i++)
+//         {
+//             s2[k]=input[i];
+//             k++;
+//         }
+        
+//         mergeSort(s1);
+//         mergeSort(s2);
+//         merge(s1,s2,input);
+        
+        
+        
+        
+        
+		
+// 	}
+    
+    
+    
+        
+//     public static void merge(int[] s1,int[] s2,int[] input)
+//     {
+//         int i=0;
+//         int j=0;
+//         int k=0;
+//         while(i<s1.length && j<s2.length)
+//         {
+//             if(s1[i]<=s2[j])
+//             {
+//                 input[k]=s1[i];
+//                 i++;
+//                 k++;
+//             }
+//             else
+//             {
+//              	input[k]=s2[j];
+//                 j++;
+//                 k++;
+//             }
+//         }
+        
+//         if(i<s1.length)
+//         	while(i<s1.length)
+//         	{
+//             	input[k]=s1[i];
+//             	i++;
+//             	k++;
+//         	}
+//         if(j<s2.length)
+//         	while(j<s2.length)
+//         	{
+//             	input[k]=s2[j];
+//             	j++;
+//             	k++;
+//         	}
+        
+//     }
+// }
+
+
+
+
+
+
+
+
+
+
+public class solution 
+{
+    public static void mergeSort(int[] input)
+    {
+
+        if(input.length<=1)
+            return;
+        int mid=input.length/2;
+        int[] part1=new int[mid];
+        int[] part2=new int[input.length-mid];
+        for(int i=0;i<mid;i++)
+        {
+            part1[i]=input[i];
+        }
+        int k=0;
+        for(int i=mid;i<input.length;i++){
+            part2[k]=input[i];
+            k++;
+        }
+        mergeSort(part1);
+        mergeSort(part2);
+        merge(input,part1,part2);
+    }
+    public static void merge(int[] input,int part1[],int part2[]){
+
+        int i=0,j=0,k=0;
+        while(i<part1.length && j<part2.length){
+            if(part1[i]<part2[j])
+            {
+                input[k]=part1[i];
+                k++;
+                i++;
+            }
+            else {
+                input[k]=part2[j];
+                k++;
+                j++;
+            }
+        }
+        while(i<part1.length)
+        {
+            input[k]=part1[i];
+            k++;
+            i++;
+        }
+        while(j<part2.length){
+            input[k]=part2[j];
+            k++;
+            j++;
+        }
+
+
+
+    }
+}
