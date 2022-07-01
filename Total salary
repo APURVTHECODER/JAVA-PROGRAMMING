@@ -1,0 +1,37 @@
+import java.util.Scanner;
+import java.lang.Math;  
+public class Main {
+	
+	public static void main(String[] args) {
+		// Write your code here
+        Scanner s = new Scanner(System.in);
+		double a = s.nextInt(); String str=s.next();
+		char ch=str.charAt(0);
+		double hra   = 0.2*a;
+        double da    = 0.5*a;
+        double allow1 = 1700.0 ;
+        double allow2 = 1500.0 ;
+        double allow3 = 1300.0 ;
+        double pf    = 0.11*a;
+        boolean t=true;
+        double total_salary=0.0;
+        if(ch=='A')
+        {
+            total_salary=a + hra + da + allow1-pf;
+            t=false;
+        }
+        else if(ch=='B')
+        {
+            total_salary=a + hra + da + allow2-pf;
+            t=false;
+        }
+        else if(t=true){
+            total_salary=a + hra + da + allow3-pf;
+        }
+
+    	System.out.println(Math.round(total_salary));
+        
+        
+
+	}
+}
