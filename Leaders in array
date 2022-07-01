@@ -1,0 +1,32 @@
+public class Solution {
+
+	public static void leaders(int[] input) {
+		/* Your class should be named Solution 
+		 * Don't write main(). 
+		 * Don't read input, it is passed as function argument. 
+		 * Print output and don't return it. 
+		 * Taking input is handled automatically. 
+		 */
+		int n=input.length;
+        for(int i=0;i<n;i++)
+        {
+            int count=0;
+            for(int j=i+1;j<n;j++)
+            {
+        
+                if(input[i]<input[j])
+                {
+                    break;
+                }
+                else if(input[i]>input[j] && input[i]!=count && j==n-1)
+                {
+                   System.out.print(input[i]+" ");
+                    count=input[i];
+                }
+            }
+            
+        }
+        System.out.print(input[n-1]);
+	}
+	
+}
