@@ -1,0 +1,41 @@
+
+public class Solution {
+
+    public static void sumOfTwoArrays(int arr1[], int arr2[], int output[]) {
+    	 int m = arr1.length-1;
+        int n = arr2.length-1;
+        int count = 0;
+        int k=0;
+        if(m>n)
+            k=m+1;
+        else
+           	k=n+1; 
+        //int k = Math.max(m,n) + 1;        
+        
+        while(m >= 0 && n>=0){
+            int sum = arr1[m] + arr2[n] + count;
+            output[k] = sum%10;
+            count = sum/10;
+            m--;
+            n--;
+            k--;
+        }
+        
+        while(m >= 0){
+            int sum = arr1[m] + count;
+            output[k] = sum%10;
+            count = sum/10;
+            m--;
+            k--;
+        }
+        while(n >= 0){
+            int sum = arr2[n] + count;
+            output[k] = sum%10;
+            count = sum/10;
+            n--;
+            k--;
+        }
+        output[0] = count;
+    }
+
+}
