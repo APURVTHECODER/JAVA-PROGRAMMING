@@ -1,0 +1,43 @@
+import java.util.Scanner;
+public class Main {
+	
+	public static void main(String[] args) {
+		// Write your code here
+	Scanner s = new Scanner(System.in);
+    int n=s.nextInt();
+    int t=n;
+    int countzero=0;
+    int countnum=0;
+    String b="";
+    if(n==0)
+  		System.out.print("0");  
+  
+    while(t>0)
+    {
+
+        int r=t%10;
+        t=t/10;
+        
+        if(r!=0)
+            countnum++;
+        if(r==0)
+            countzero++;
+        
+        if(r==0 && countzero!=0 && countnum==0)
+        	
+        	continue;
+        
+        b=b+r;
+      
+  
+        
+
+    }
+       System.out.print(b);
+            
+        
+
+}
+
+	}
+
