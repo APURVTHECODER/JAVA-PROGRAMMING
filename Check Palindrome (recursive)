@@ -1,0 +1,95 @@
+
+// public class solution {
+
+// 	public static boolean isStringPalindrome(String input) 
+//     {
+//         int si=0;
+// 		int ei=input.length();
+//         if(input.length()<=1)
+//         {
+//             return true;
+//         }
+        
+        
+//         if(input.charAt(0)!=input.charAt(input.length()-1))
+//         {
+//             return false;
+//         }
+//         else
+//         {
+//             String str=helper(input,si+1,ei-1);
+//             isStringPalindrome(str);
+//         }
+        
+    
+//         return false;
+        
+// 	}
+    
+    
+// 	public static String helper(String s,int si,int ei)
+//     {
+        
+//         String substr=s.substring(si,ei);
+//         return substr;
+//     }
+    
+
+// }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+public class solution {
+
+	public static boolean isStringPalindrome(String input) {
+		// Write your code here
+        return (isStringPalindrome(input,0,input.length()-1));
+	}
+    
+    public static boolean isStringPalindrome(String input, int si, int ei)
+    {
+        if (si>=ei)
+        {
+            return true;
+        }
+        boolean check=true;
+        if (input.charAt(si)==input.charAt(ei))
+        {
+            check=isStringPalindrome(input,si+1,ei-1);
+        }
+        else
+        {
+            check=false;
+        }
+        return check;
+    }
+}
+
