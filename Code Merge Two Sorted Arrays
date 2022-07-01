@@ -1,0 +1,45 @@
+
+public class Solution {  
+
+    public static int[] merge(int arr1[], int arr2[]) {
+    	//Your code goes here
+        int x=arr1.length;
+        int y=arr2.length;
+        int[] arr3=new int[x+y];
+        int i=0;
+        int j=0;
+        int k=0;
+        while(i<x && j<y)
+        {
+            if(arr1[i]<=arr2[j])
+            {
+               arr3[k]= arr1[i];
+                i++;
+                k++;
+            }
+            else
+               {
+                   arr3[k]=arr2[j];
+                j++;
+				k++;
+               }
+            
+        }
+        while(i<x)
+        {
+            arr3[k]=arr1[i];
+            i++;
+            k++;
+        }
+
+        while(j<y)
+        {
+            arr3[k]=arr2[j];
+            j++;
+            k++;
+        }
+        
+        return arr3;
+    }
+
+}
