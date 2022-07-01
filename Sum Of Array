@@ -1,0 +1,40 @@
+public class Solution {
+
+	public static int sum(int input[]) {
+		/* Your class should be named Solution
+		 * Don't write main().
+		 * Don't read input, it is passed as function argument.
+		 * Return output and don't print it.
+	 	 * Taking input and printing output is handled automatically.
+		*/
+        if(input.length==1)
+        {
+            return input[0];
+        }
+        if(input.length==2)
+        {
+            return input[0]+input[1];
+        }
+        
+      	int temp[]=new int[input.length-1];
+        
+        
+        for(int i=1;i<input.length;i++)
+        {
+            if(i==1)
+            	temp[0]=input[0]+input[i];
+            else
+            	temp[i-1]=input[i];
+            
+            
+            
+        }
+    
+        int add=sum(temp);
+        
+        
+        return add;
+        
+        
+    }
+}
