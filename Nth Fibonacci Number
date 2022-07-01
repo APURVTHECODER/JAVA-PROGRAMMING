@@ -1,0 +1,28 @@
+import java.util.Scanner;
+public class Solution {
+
+
+	public static void main(String[] args) {
+		
+		/* Your class should be named Solution.
+	 	* Read input as specified in the question.
+	 	* Print output as specified in the question.
+		*/
+    Scanner s = new Scanner(System.in);
+    int numberposition=s.nextInt();
+    int num1=0;
+    int num2=1;
+    for(int i=1;i<=numberposition;i++)
+    {
+       
+        int sum=num1+num2;
+        num1=num2;
+        num2=sum;
+    }
+    
+    System.out.print(num1);
+
+		
+	}
+
+}
