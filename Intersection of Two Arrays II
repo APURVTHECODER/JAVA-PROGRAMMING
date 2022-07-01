@@ -1,0 +1,32 @@
+
+public class Solution{  
+    
+    public static void intersections(int arr1[], int arr2[]) {
+    	//Your code goes here
+        int n=arr1.length;
+        int v=arr2.length;
+        int intersections=0;
+   
+        	for(int i=0;i<n;i++)
+        	{
+            	for(int j=0;j<v;j++)
+            	{
+
+                    
+                        if(arr1[i]==arr2[j])
+                        {
+                            intersections=arr1[i];
+                            arr2[j]=Integer.MIN_VALUE;
+                            System.out.print(intersections+" ");
+                            break;
+                    		
+                        }
+                    
+                    
+            	}
+        	
+        	}
+        
+        
+    }
+}
