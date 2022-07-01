@@ -1,0 +1,37 @@
+public class Solution {
+
+	public static int arrayEquilibriumIndex(int[] arr){  
+		//Your code goes here
+        int i=0;
+        int Totalsum=0;
+		while(i<arr.length)
+        {
+            Totalsum+=arr[i];
+            i++;
+        }
+         int rightsum=0;
+		int leftsum=0;
+        int j=0;
+        int index=-1;
+        while(j<arr.length)
+        {
+            rightsum=Totalsum-leftsum-arr[j];
+            
+            if(leftsum==rightsum)
+            {
+                index=j;
+            }
+            else
+            {
+                leftsum+=arr[j];
+                
+            }
+            j++;
+        }
+        
+        return index;
+        
+        
+        
+	}
+}
