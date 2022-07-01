@@ -1,0 +1,165 @@
+// public class Solution {	
+
+// 	public static int tripletSum(int[] arr, int num) {
+// 		//Your code goes here
+        
+//                 int n=arr.length;
+//         int findUnique=0;
+//     	if(n==1)
+//         {
+//             return arr[0];
+//         }
+//         	for(int i=0;i<n;i++)
+//         	{
+                
+//             	for(int j=i+1;j<n;j++)
+//             	{
+//                     for(int k=j+1;k<n;k++)
+//                     {   
+//                     if(i!=j)
+//                     {
+//                         if(arr[i]+arr[j]+arr[k]==num)
+//                         {
+//                             findUnique++;
+//                             continue;
+//                         }       
+                    		
+//                         }
+//                     }
+//             	}
+                
+//         	}
+//         return findUnique;        
+// 	}
+// }
+
+
+
+/* 
+	Time Complexity : O(n^2)
+	Space Complexity : o(1)
+	Where 'n' is the size of the Array/List
+*/
+
+// import java.util.Arrays;
+
+// public class Solution {	
+	
+// 	public static int tripletSum(int[] arr, int num) {
+// 		Arrays.sort(arr);
+// 		int n = arr.length;
+
+// 		int numTriplets = 0;
+
+// 		for (int i = 0; i < n; i++) {
+// 			int pairSumFor = num - arr[i];
+// 			int numPairs = pairSum(arr, (i + 1), (n - 1), pairSumFor);
+
+// 			numTriplets += numPairs;
+// 		}
+
+// 		return numTriplets;
+// 	}
+	
+// 	public static int pairSum(int[] arr, int startIndex, int endIndex, int num) {
+
+// 		int numPair = 0;
+
+// 		while(startIndex < endIndex) {
+
+// 			if(arr[startIndex] + arr[endIndex] < num) {
+// 				startIndex++;
+// 			}
+// 			else if (arr[startIndex] + arr[endIndex] > num) {
+// 				endIndex--;
+// 			} else {
+				
+// 				int elementAtStart = arr[startIndex];
+// 				int elementAtEnd = arr[endIndex];
+				
+// 				if (elementAtStart == elementAtEnd) {
+// 					int totalElementsFromStartToEnd = (endIndex - startIndex) + 1;
+// 					numPair += (totalElementsFromStartToEnd * (totalElementsFromStartToEnd - 1) / 2);
+					
+// 					return numPair;
+// 				}
+				
+// 				int tempStartIndex = startIndex + 1;
+// 				int tempEndIndex = endIndex - 1;
+
+// 				while (tempStartIndex <= tempEndIndex && arr[tempStartIndex] == elementAtStart) {
+// 					tempStartIndex += 1;
+// 				}
+				
+// 				while(tempEndIndex >= tempStartIndex && arr[tempEndIndex] == elementAtEnd) {
+// 					tempEndIndex -= 1;
+// 				}
+
+// 				int totalElementsFromStart = (tempStartIndex - startIndex);
+// 				int totalElementsFromEnd = (endIndex - tempEndIndex);
+				
+// 				numPair += (totalElementsFromStart * totalElementsFromEnd);
+
+
+// 				startIndex = tempStartIndex;
+// 				endIndex = tempEndIndex;
+
+// 			}
+// 		}
+
+// 		return numPair;
+// 	}
+// }
+import java.util.Arrays;
+public class Solution {	
+	public static int tripletSum(int[] arr, int num) {
+ 		Arrays.sort(arr);
+        int n = arr.length;
+        
+        int numTriplets = 0;
+        
+        for (int i=0; i<n; i++) {
+            int pairSum = num - arr[i];
+            int numPairs = 0;
+            
+            int start = i + 1;
+            int stop = n - 1;
+             
+             while (start < stop) {
+                if (arr[start] + arr[stop] < pairSum) {
+                    start++;
+                } else if (arr[start] + arr[stop] > pairSum) {
+                    stop--;
+                } else {
+                   if (arr[start] == arr[stop]) {
+                       int totalCount = (stop - start) + 1;
+                       numPairs += (totalCount * (totalCount - 1) / 2);
+                       break;
+                   }
+                    
+                    int tempI = start + 1;
+                    int tempJ = stop - 1;
+                    
+                    while (tempI <= tempJ && arr[start] == arr[tempI]) {
+                        tempI++;
+                    }
+                    
+                    while (tempI <= tempJ && arr[stop] == arr[tempJ]) {
+                        tempJ--;
+                    }
+                    
+                    int totalElementFromStart = (tempI - start);
+                    int totalElementFromEnd = stop - tempJ;
+                    
+            		numPairs += (totalElementFromStart * totalElementFromEnd);
+                    
+                    start = tempI;
+                    stop = tempJ;
+                }
+            }
+            numTriplets += numPairs;
+        }
+        return numTriplets;
+    }
+}
+
