@@ -1,0 +1,36 @@
+import java.util.Arrays;
+public class Solution {
+
+	public static boolean isPermutation(String str1, String str2) {
+		//Your code goes here
+        char charArray1[] = str1.toCharArray();
+      	Arrays.sort(charArray1);
+        char charArray2[]=str2.toCharArray();
+        Arrays.sort(charArray2);
+        int n=charArray1.length;
+        int m=charArray2.length;
+        int count=0;
+        boolean t=false;
+        if(n!=m)
+        {
+            return false;
+        }
+        for(int i=0;i<n;i++)
+        {
+            for(int j=count;j<m;j++)
+            {
+                if(charArray1[i]==charArray2[j])
+                {
+                    count++;
+                    break;
+                }
+            }
+        }
+        if(count==n)
+        {
+        t=true;
+        }
+		return t;
+	}
+
+}
