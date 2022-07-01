@@ -1,0 +1,26 @@
+import java.util.Arrays;
+public class Solution {
+
+	public static char highestOccuringChar(String str) {
+		//Your code goes here
+        int[] map = new int[256]; //array of 0 to 255 is created
+        for(int i = 0; i<str.length(); i++)  
+        {  
+            map[str.charAt(i)]++;  // to get to that ASCI value index using that character as index
+        }
+        
+        int count = 1;
+        char ans = str.charAt(0);
+        
+        for(int i = 0; i<str.length(); i++)
+        {
+            if(map[str.charAt(i)]>count)        //checking if count of that character is more than 1 ie count
+            {
+                ans = str.charAt(i);       //setting the answer as the character which has highest occurence in the if comdition.
+                count = map[str.charAt(i)]; //setting the count value as the most occurence of the most recent character
+            }
+        }
+        return ans;
+	}
+
+}
