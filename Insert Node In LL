@@ -1,0 +1,65 @@
+public class Solution {
+
+	public static LinkedListNode<Integer> insert(LinkedListNode<Integer> head, int pos, int data){
+		//Your code goes here
+         LinkedListNode<Integer> node1 = new LinkedListNode<Integer>(data);
+        // System.out.println(node1.data);
+        LinkedListNode<Integer> temp = head;
+        
+     	int count=0;
+        if(pos==0)
+        {
+            node1.next=head;
+            head=node1;
+        }
+        else
+        {
+        while(count<pos-1 && temp!=null)
+        {
+           
+            count++;
+            temp=temp.next;
+        }
+        
+        if(temp!=null)
+        {
+            node1.next=temp.next;
+        	temp.next=node1;
+        }
+        }
+        return head;
+        
+	}
+}public class Solution {
+
+	public static LinkedListNode<Integer> insert(LinkedListNode<Integer> head, int pos, int data){
+		//Your code goes here
+         LinkedListNode<Integer> node1 = new LinkedListNode<Integer>(data);
+        // System.out.println(node1.data);
+        LinkedListNode<Integer> temp = head;
+        
+     	int count=0;
+        if(pos==0)
+        {
+            node1.next=head;
+            head=node1;
+        }
+        else
+        {
+        while(count<pos-1 && temp!=null)
+        {
+           
+            count++;
+            temp=temp.next;
+        }
+        
+        if(temp!=null)
+        {
+            node1.next=temp.next;
+        	temp.next=node1;
+        }
+        }
+        return head;
+        
+	}
+}
