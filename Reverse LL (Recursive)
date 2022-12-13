@@ -1,0 +1,48 @@
+public class Solution {
+
+	public static LinkedListNode<Integer> reverseLinkedListRec(LinkedListNode<Integer> head) {
+	
+        if(head==null || head.next==null)
+        {
+            return head;
+        }
+        else
+        {
+            
+        LinkedListNode<Integer> temp=reverseLinkedListRec(head.next);
+           // System.out.print(temp);
+        LinkedListNode<Integer> node=temp;
+            //System.out.print(node.data);
+      	while(node.next!=null)
+        {
+            node=node.next;
+            //System.out.print(node.data);
+        }
+        
+            node.next=head;
+            head.next=null;
+            return temp;
+        }
+        
+        
+	}
+
+}
+
+
+
+
+//         if(head==null || head.next==null)
+//         {
+//             return head;
+//         }
+//     	LinkedListNode<Integer> smallhead=reverseLinkedListRec(head.next);;
+//         LinkedListNode<Integer> temp=smallhead;
+//         while(temp.next!=null)
+//         {
+//         temp=temp.next;
+//         }
+//         temp.next=head;
+//         head.next=null;
+        
+//         return smallhead;
