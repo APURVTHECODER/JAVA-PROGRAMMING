@@ -1,0 +1,52 @@
+/*
+	
+	Following is the structure used to represent the Binary Tree Node
+
+	class BinaryTreeNode<T> {
+		T data;
+		BinaryTreeNode<T> left;
+		BinaryTreeNode<T> right;
+
+		public BinaryTreeNode(T data) {
+			this.data = data;
+			this.left = null;
+			this.right = null;
+		}
+	}
+
+ */
+import java.lang.Math;
+public class Solution {
+
+	public static int countNodesGreaterThanX(BinaryTreeNode<Integer> root, int x) {
+// 		//Your code goes here
+//         if(root==null)
+//         {
+//             return 0;
+//         }
+//         int finaly=countNodesGreaterThanX(root.left,x);
+//         //int finaly2=countNodesGreaterThanX(root.right,x);
+//         return root.data+finaly;//finaly2;
+        
+        if (root==null)
+        {
+            return 0;
+        }
+        
+        int final1=countNodesGreaterThanX(root.left,x);
+        int final2=countNodesGreaterThanX(root.right,x);
+        //System.out.println(root.data);
+        if (root.data>x)
+        {
+            return final1+final2+1;
+        }
+        else
+        {
+            return final1+final2;
+        }
+	
+    
+    
+	}
+
+}
