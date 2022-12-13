@@ -1,0 +1,57 @@
+public class Solution {
+
+	public static LinkedListNode<Integer> evenAfterOdd(LinkedListNode<Integer> head) {
+		//Your code goes here
+	LinkedListNode<Integer> odd=null;
+    LinkedListNode<Integer> even=null;  
+    LinkedListNode<Integer> e=null;  
+    LinkedListNode<Integer> o=null; 
+	LinkedListNode<Integer> temp=head;
+        while(temp!=null)
+        {
+            if(temp.data%2==0)
+            {
+                if(even==null)
+                {
+                    even=temp;
+                    e=temp;
+                }
+                else
+                {
+                    e.next=temp;
+					e=e.next;   
+                }
+            }
+            else
+            {
+                if(odd==null)
+                {
+                    odd=temp;
+                    o=temp;
+                    //o=o.next;
+                    //System.out.print(temp.data+"odd");
+                }
+                else
+                {
+                    o.next=temp;
+                    o=o.next;
+                    //System.out.print(temp.data+"odd");
+                }   
+            }
+             temp=temp.next;
+        }
+        if (odd==null)
+        {
+            return even;
+        }
+        else
+        {
+            o.next=even;
+        }
+        if (even!=null)
+        {
+            e.next=null;
+        }
+        return odd;  
+	}
+}
