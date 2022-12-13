@@ -1,0 +1,74 @@
+import java.util.Stack;
+public class Solution {
+
+	public static boolean checkRedundantBrackets(String expression) {
+         Stack<Character> stack=new Stack<Character>();
+        int count=0;
+        for(int i=0;i<expression.length();i++)
+        {
+            char c=expression.charAt(i);
+            if (c==')')
+            {
+                while(!stack.isEmpty() && stack.peek()!='(')
+                {
+                    count=count+1;
+                    stack.pop();
+                }
+                if (count==0 || count==1)
+                {
+                    return true;
+                }
+                stack.pop();
+                count=0;
+            }
+            else
+            {
+                stack.push(c);
+            }
+        }
+        return false;
+	}
+}
+
+
+
+
+
+		//Your code goes here
+//          Stack<Character> stack=new Stack<>();
+//         int n=expression.length();
+//         int count=0;
+//         for(int i=0;i<n;i++)
+//         {
+//           	if(expression.charAt(i)=='('|| expression.charAt(i)=='{' || expression.charAt(i)=='[')
+//             {
+//                 char temp=expression.charAt(i);
+//                 stack.push(temp);  
+//             }
+//         	else if(stack.size()!=0)
+//             {
+//                 char temp=expression.charAt(i);
+//                 if(stack.peek()=='(' && temp==')' ||  stack.peek()=='{' && temp=='}' || stack.peek()=='[' && temp==']')
+//                 {
+//                     int temp1=count;
+//                     count=0;
+//                     stack.pop();
+//                     if(temp1==0)
+//                     {
+//                        return true; 
+//                     }
+                 
+                    
+//                 }
+         
+//             }
+//             else
+//             {
+//                 count++;
+//             }
+//         }
+//     	if(stack.size()==0)
+//        {return false;}
+//         else
+//         {return true; }
+        
