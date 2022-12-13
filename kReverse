@@ -1,0 +1,32 @@
+public class Solution {
+
+	public static LinkedListNode<Integer> kReverse(LinkedListNode<Integer> head, int k) {
+		//Your code goes here
+        LinkedListNode<Integer> prev=null;   //ek previous null ptr
+		LinkedListNode<Integer> curr=head;   //ek cureent head ptr
+        LinkedListNode<Integer> nexty=null; //ek next head ptr
+        int count=0;
+        if(k==0)                  // agr number of nodes to reverse 0 hei toh return krdo oroginal LL ko
+        {
+            return head;
+        }
+        while(curr!=null && count<k)   //iterating through the given LL k number of times
+        {
+            nexty=curr.next;         //nexty=address of 2 
+            curr.next=prev;           //address of 2 =null  now link from 1 towards 2 is broken
+    								//System.out.print(curr.next);
+            prev=curr;               //null address =1
+          
+            curr=nexty;               //1=address of 2
+            count++;               
+        }
+        if(nexty!=null)
+        {
+           head.next=kReverse(nexty,k);
+        }
+        
+        
+		return prev;
+	}
+
+}
