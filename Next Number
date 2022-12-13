@@ -1,0 +1,60 @@
+public class Solution {
+
+
+	public static LinkedListNode<Integer> nextLargeNumber(LinkedListNode<Integer> head) {
+   		LinkedListNode<Integer> temp=head;
+        LinkedListNode<Integer> temp1=head;
+        LinkedListNode<Integer> temp2=head;
+        LinkedListNode<Integer> ideal=null;
+        LinkedListNode<Integer> one=new LinkedListNode<>(1);
+        if(head.next==null)
+        {
+            head.data=head.data+1;
+            return head;
+        }
+
+        while(temp.next!=null)
+        {
+            if(temp.data<9)
+            {
+                ideal=temp;
+                
+            }
+       
+            temp=temp.next;
+        }
+        if(temp.data<9)
+        {
+            ideal=temp;
+        }
+      
+        if(ideal==null)
+        {
+            one.next=temp1;
+           
+            while(temp1!=null)
+            {
+                temp1.data=(temp1.data+1)%10;
+                temp1=temp1.next;
+            }
+            
+            head=one;
+        }
+        else
+        {
+            ideal.data=ideal.data+1;
+            //System.out.println(ideal.data);
+            ideal=ideal.next;
+            while(ideal!=null)
+            {
+                ideal.data=(ideal.data+1)%10;
+                ideal=ideal.next;
+            }
+        }
+        return head;
+        
+        
+	}
+
+
+}
