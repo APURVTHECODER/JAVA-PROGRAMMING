@@ -1,0 +1,32 @@
+public class Solution {
+
+
+	public static LinkedListNode<Integer> deleteNodeRec(LinkedListNode<Integer> head, int pos) {
+    	//Your code goes here
+        LinkedListNode<Integer> temp=head;
+        int count=0;
+        while(temp!=null)
+        {
+            count++;
+            temp=temp.next;
+        }
+        if(count<pos || head==null)
+        {
+            return head;
+        }
+        else if(pos==0)
+        {
+            return head.next;
+        }
+        
+        else
+        {
+            LinkedListNode<Integer>smallhead=deleteNodeRec(head.next,pos-1);
+            head.next=smallhead;
+            return head;
+        }
+        
+        
+	}
+
+}
