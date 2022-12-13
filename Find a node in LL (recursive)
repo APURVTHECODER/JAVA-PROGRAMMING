@@ -1,0 +1,30 @@
+public class Solution {
+
+
+	public static int findNodeRec(LinkedListNode<Integer> head, int n) {
+    	//Your code goes here
+        LinkedListNode<Integer> temp1=head;
+        if(head==null || head.next==null)
+        {
+            return -1;
+        }
+        int count=0;
+        int fina=0;
+        while(temp1!=null)
+        {
+            if(temp1.data==n)
+            {
+                fina=count;
+                return fina;
+            }
+            else
+            {
+                fina=-1;
+            }
+            count++;
+            temp1=temp1.next;
+        }
+        //findNodeRec(head.next,n);
+        return fina;    
+	}
+}
