@@ -1,0 +1,38 @@
+import java.util.LinkedList;
+import java.util.Queue;
+import java.util.Stack;
+import java.util.*;
+
+public class Solution {
+
+	public static void reverseQueue(Queue<Integer> input) {
+        //METHOD WHICH USES NOTHING THAT IS RECURSION
+        if(input.size()==0 || input.size()==1)
+        {
+            
+            return;
+        }
+        
+        int temp=input.poll();
+        reverseQueue(input);
+       	input.add(temp);
+        
+	}
+
+}
+		//Your code goes here
+        
+        
+        //METHOD WHICH USES STACK 	
+//         	Stack<Integer> stack=new Stack<>();	
+//         while(input.size()!=0)
+//         {
+//         	stack.push(input.poll());
+//             //System.out.print(stack.push(input.poll()));
+//         }
+//         while(stack.size()!=0)
+//         {
+//             input.add(stack.pop());
+//         }
+        
+        
