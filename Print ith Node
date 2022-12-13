@@ -1,0 +1,32 @@
+public class Solution {
+
+	public static void printIthNode(LinkedListNode<Integer> head, int i){
+		//Your code goes here
+		LinkedListNode<Integer> temp = head;
+        LinkedListNode<Integer> temp1 = head;
+        int count=0;
+    	while(temp1 != null){
+        //System.out.print(temp.data +" ");
+            if(temp.next!=null)
+            {
+                temp = temp.next;
+                if(count==i-1)
+                {
+                    System.out.print(temp.data+" ");
+                }
+            
+           }
+        temp1=temp1.next;
+            count++;
+    
+    }
+         
+        
+        
+        
+        
+        
+        
+        
+    }
+}
