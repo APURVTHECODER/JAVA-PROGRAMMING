@@ -1,0 +1,105 @@
+import java.util.LinkedList;
+public class Solution {
+
+	public static LinkedListNode<Integer> appendLastNToFirst(LinkedListNode<Integer> head, int n) {
+
+        LinkedListNode<Integer> temp=head;
+        LinkedListNode<Integer> top=head;
+        LinkedListNode<Integer> newtop=null;     //intialization of nodes by null/head
+        LinkedListNode<Integer> newlast=null;
+        
+        int count=0;
+        while(temp!=null)
+        {
+            temp=temp.next;
+            count++;
+        }
+         if (n==0)
+         {
+             return head;
+         }
+        
+        //count=7
+        if(count==0)
+        {
+            return head;
+        }
+        if(count<n)
+        {
+            return head;
+        }
+       	n=count-n;
+         //System.out.println(n);
+        while(n>1)
+        {
+            top=top.next;
+            n--;
+            //count--;
+            
+        }
+      
+        newtop=top.next;
+        top.next=null;
+        newlast=newtop;
+     		//System.out.println(newtop.data);
+        // System.out.println(newlast.data);
+        while(newtop.next!=null)
+        {
+            newtop=newtop.next;
+        }
+        newtop.next=head;
+        head=newlast;
+            
+         return head;
+        
+        
+          
+    }
+    
+    
+    
+}
+
+
+
+
+//      LinkedListNode<Integer> node=head,checkNode=null,newHead=null;
+//         if (n==0)
+//         {
+//             return head;
+//         }
+        
+//         int count=0;
+//         while(node!=null)
+//         {
+//             node=node.next;
+//             count=count+1;
+//         }
+//         if (count<n)
+//         {
+//             return head;
+//         }
+        
+//         n=count-n;
+//         node=head;
+//         for (int i=0;i<n-1;i++)
+//         {
+//             node=node.next;
+//         }
+//         checkNode=node.next;
+//         node.next=null;
+//         newHead=checkNode;
+//         //System.out.println("Shifting from element: "+checkNode.data);
+//         //System.out.println("Now last element is: "+node.data);
+//         //System.out.println("Now first element is: "+newHead.data);
+//         while(checkNode.next!=null)
+//         {
+//             checkNode=checkNode.next;
+//         }
+//         checkNode.next=head;
+//         head=newHead;
+//         return head;
+        
+//     }
+// }
+        
