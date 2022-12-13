@@ -1,0 +1,18 @@
+public class Solution {
+
+	public static int length(LinkedListNode<Integer> head){
+		//Your code goes here
+        LinkedListNode<Integer> temp = head;
+		int tem=0;
+    	while(temp != null){
+        //System.out.print(temp.data +" ");
+        temp = temp.next;
+        tem++;
+    }
+        
+        return tem;
+        
+        
+        
+	}
+}
