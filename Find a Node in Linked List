@@ -1,0 +1,37 @@
+public class Solution {
+	public static int findNode(LinkedListNode<Integer> head, int n) {
+		// Write your code here.
+        LinkedListNode<Integer> temp = head;
+        LinkedListNode<Integer> temp1 = head;
+        int count=0;
+        boolean flag=false;
+    	while(temp1 != null){
+        //System.out.print(temp.data +" ");
+            if(temp.next!=null)
+            {
+                temp = temp.next;
+                if(temp.data==n)
+                {
+                    n=count+1;
+                    flag=true;
+                    break;
+                }
+           
+               
+           }
+        temp1=temp1.next;
+            count++;
+    
+    }
+        if(flag==false)
+        {
+            return -1;
+        }
+        else
+        {
+            return n; 
+        }
+       
+        
+	}
+}
