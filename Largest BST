@@ -1,0 +1,115 @@
+// public class Solution {
+// 	/*
+// 	 * BinaryTreeNode class
+// 	 * 
+// 	 * class BinaryTreeNode<T> 
+// 	 * { 
+// 	 * 		T data; 
+// 	 * 		BinaryTreeNode<T> left; 
+// 	 * 		BinaryTreeNode<T> right;
+// 	 *		public BinaryTreeNode(T data) 
+// 	 *		{
+// 	 *  		this.data = data; 
+// 	 *  	} 
+// 	 *  }
+// 	 */
+// 	public static class BSTpair{
+//         int max;
+//         int min;
+//         boolean isBST;
+//     }
+//     public static BSTpair isBST(BinaryTreeNode<Integer> node)
+//     {
+//      if(node==null)
+//      {
+//          BSTpair bp=new BSTpair();
+//          bp.min=Integer.MAX_VALUE;
+//          bp.max=Integer.MIN_VALUE;
+//          bp.isBST=true;
+//          return bp;
+//      }
+//         BSTpair lp=isBST(node.left); 
+//             BSTpair rp=isBST(node.right);
+//         BSTpair mp=new BSTpair();
+//         mp.isBST=lp.isBST && rp.isBST && (node.data>=lp.max && node.data<=rp.min);
+//             mp.min=Math.min(node.data,Math.min(lp.min,rp.min));
+//         	mp.max=Math.max(node.data,Math.max(lp.max,rp.max));
+//         if(mp.isBST)
+//         {
+//             mp.root=node;
+// 			mp.size=lp.size+rp.size+1;
+//         }
+//         else if(lp.size>rp.size)
+//         {
+//             mp.root=lp.root;
+//             mp.size=lp.size;
+//         }
+//         else 
+//         {
+//             mp.root=rp.root;
+//             mp.size=rp.size;
+//         }
+        
+//         return mp;
+//     }
+// 	public static int largestBSTSubtree(BinaryTreeNode<Integer> root) {
+// 		// Write your code here
+//     	return isBST(root);
+// 	}
+
+// }
+
+
+public class Solution {
+	/*
+	 * BinaryTreeNode class
+	 * 
+	 * class BinaryTreeNode<T> 
+	 * { 
+	 * 		T data; 
+	 * 		BinaryTreeNode<T> left; 
+	 * 		BinaryTreeNode<T> right;
+	 *		public BinaryTreeNode(T data) 
+	 *		{
+	 *  		this.data = data; 
+	 *  	} 
+	 *  }
+	 */
+	
+	public static int largestBSTSubtree(BinaryTreeNode<Integer> root) {
+		// Write your code here
+        if (root==null)
+            return 0;
+        
+        if (isBST(root,Integer.MIN_VALUE,Integer.MAX_VALUE))
+            return findHeight(root);
+        else
+        {
+        	return Math.max(largestBSTSubtree(root.left),largestBSTSubtree(root.right));
+        }
+            
+	}
+    
+    private static int findHeight(BinaryTreeNode<Integer> root)
+    {
+        if (root==null)
+            return 0;
+        
+        if (root.left==null && root.right==null)
+            return 1;
+        
+        return Math.max(findHeight(root.left),findHeight(root.right))+1;
+    }
+    
+    private static boolean isBST(BinaryTreeNode<Integer> root, int min, int max)
+    {
+        if(root == null)
+			return true;
+		
+        if(root.data < min || root.data > max)
+			return false;
+		else
+			return isBST(root.left,min,root.data -1) && isBST(root.right,root.data +1,max);
+    }
+
+}
