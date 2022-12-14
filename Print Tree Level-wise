@@ -1,0 +1,82 @@
+// import java.util.LinkedList;
+// import java.util.Queue;
+// import java.util.*;
+// public class Solution {
+
+// /*	TreeNode structure 
+//  * 
+//  * class TreeNode<T> {
+// 		T data;
+// 		ArrayList<TreeNode<T>> children;
+
+// 		TreeNode(T data){
+// 			this.data = data;
+// 			children = new ArrayList<TreeNode<T>>();
+// 		}
+// 	}*/
+	
+	
+	
+// 	public static void printLevelWise(TreeNode<Integer> root){
+// 		/* Your class should be named Solution 
+//  		 * Don't write main(). 
+// 		 * Don't read input, it is passed as function argument. 
+// 		 * Print output and don't return it. 
+// 		 * Taking input is handled automatically. 
+// 		 */
+//         if(root==null)
+//         {
+//             return;
+//         }
+//        Queue<TreeNode<Integer>> q=new LinkedList<TreeNode<Integer>>();
+//     	q.add(root);
+//         while(!q.isEmpty())
+//         {
+//            root=q.poll();
+//             System.out.print(root.data+" ");
+//           for(TreeNode<Integer> child:root.children)
+//           {
+              
+//               q.add(child);
+             
+//           }
+           
+//         }
+// 	}
+		
+// }
+
+
+//code
+import java.util.Queue;
+import java.util.LinkedList;
+public class Solution {
+	 public static void printLevelWise(TreeNode<Integer> root) {
+
+        if (root == null) {
+            return;
+        }
+
+        Queue<TreeNode<Integer>> pendingChildren = new LinkedList<>();
+        pendingChildren.add(root);
+
+        while (!pendingChildren.isEmpty()) {
+            
+            int sizeOfQueue = pendingChildren.size();
+            while (sizeOfQueue > 0) { //this while loop is used for maintaining the levels while printing the final output by manipulating the execution of println()
+                                      //in line 77
+                TreeNode<Integer> front = pendingChildren.poll();
+                System.out.print(front.data + " ");
+
+                for (int i = 0; i < front.children.size(); ++i) {
+                    pendingChildren.add(front.children.get(i));
+                }
+                --sizeOfQueue;
+
+            }
+            System.out.println();
+
+        }
+
+    }
+}
