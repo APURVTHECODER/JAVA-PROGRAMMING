@@ -1,0 +1,32 @@
+public class Solution {
+
+/*	TreeNode structure 
+ * 
+ * class TreeNode<T> {
+		T data;
+		ArrayList<TreeNode<T>> children;
+
+		TreeNode(T data){
+			this.data = data;
+			children = new ArrayList<TreeNode<T>>();
+		}
+	}*/
+	
+	public static int countLeafNodes(TreeNode<Integer> root){
+        int count=0;
+		for(int i=root.children.size()-1;i>=0;i--)   // iss loop ko seedha bhi chalay toh isme koi problem nhi pr agar leaf node ko remove krvaan ho toh manadatorily ye hi loop lgega kyuki seedha loop lgaane se logical error aajygi
+        {
+            TreeNode child=root.children.get(i);
+                if(child.children.size()==0)
+            {
+                count++;
+            }
+        }
+        for(TreeNode child:root.children)
+        {
+            int ch=countLeafNodes(child);
+            count=count+ch;
+        }
+        return count;
+	}
+}
