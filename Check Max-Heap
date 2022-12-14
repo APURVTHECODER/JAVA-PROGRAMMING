@@ -1,0 +1,29 @@
+public class Solution {
+
+	public static boolean checkMaxHeap(int arr[]) {
+		return checkMaxHeapHelper(arr,0);
+	}
+     public static boolean checkMaxHeapHelper(int[] arr, int startIndex)
+    {
+        if(startIndex==arr.length)
+            return true;
+        int parentIndex=startIndex;
+        int leftChildIndex=2*parentIndex+1,rightChildIndex=2*parentIndex+2;
+        boolean leftAns=true,rightAns=true;
+        if(leftChildIndex<arr.length)
+        {
+            if(arr[parentIndex]<arr[leftChildIndex])
+                return false;
+            else
+                leftAns=checkMaxHeapHelper(arr,leftChildIndex);
+        }
+        if(rightChildIndex<arr.length)
+        {
+            if(arr[parentIndex]<arr[rightChildIndex])
+                return false;
+            else
+                rightAns=checkMaxHeapHelper(arr,rightChildIndex);
+        }
+        return (leftAns && rightAns);  
+    }
+}
